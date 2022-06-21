@@ -168,33 +168,33 @@ console.log(removeFromCart(324234));
     ---------------------------------------
 */
 const printCart = () => {
-  let pizze = [];
-  let bevande = [];
+  let pizzas = [];
+  let drinks = [];
   let dessert = [];
-  let totale = 0;
+  let total = 0;
   productsInCart.map(objectProduct => {
     if (objectProduct.category === 0) {
-      pizze.push(objectProduct);
+      pizzas.push(objectProduct);
     } else if (objectProduct.category === 4) {
-      bevande.push(objectProduct);
+      drinks.push(objectProduct);
     } else {
       dessert.push(objectProduct);
     }
-    totale += objectProduct.price;
+    total += objectProduct.price;
   });
 
   console.log('\n');
 
   console.log("*** PIZZE ***")
-  for (i = 0; i < pizze.length; i++) {
-    console.log(`${pizze[i].quantity} x ${pizze[i].title}(${pizze[i].ingredients}) | ${pizze[i].price}€`)
+  for (i = 0; i < pizzas.length; i++) {
+    console.log(`${pizzas[i].quantity} x ${pizzas[i].title}(${pizzas[i].ingredients}) | ${pizzas[i].price}€`)
   };
 
   console.log('\n');
 
   console.log("*** BEVANDE ***")
-  for (i = 0; i < bevande.length; i++) {
-    console.log(`${bevande[i].quantity} x ${bevande[i].title} | ${bevande[i].price}€`)
+  for (i = 0; i < drinks.length; i++) {
+    console.log(`${drinks[i].quantity} x ${drinks[i].title} | ${drinks[i].price}€`)
   };
 
   console.log('\n');
@@ -207,7 +207,7 @@ const printCart = () => {
   console.log('\n');
 
   console.log("*** TOTALE ***")
-  console.log(`${totale}€`)
+  console.log(`${total}€`)
 };
 
 printCart();
@@ -220,14 +220,14 @@ printCart();
 */
 
 const getPizzeBianche = () => {
-  const pizze = productsInCart.filter(product => product.ingredients);
-  const pizzeBianche = [];
-  for (i = 0; i < pizze.length; i++) {
+  const pizzas = productsInCart.filter(product => product.ingredients);
+  const whitePizzas = [];
+  for (i = 0; i < pizzas.length; i++) {
 
-    if (!pizze[i].ingredients.includes("pomodoro"))
-      pizzeBianche.push(pizze[i]);
+    if (!pizzas[i].ingredients.includes("pomodoro"))
+      whitePizzas.push(pizzas[i]);
 
   }
-  return pizzeBianche;
+  return whitePizzas;
 }
 console.log(getPizzeBianche());
